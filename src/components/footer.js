@@ -9,10 +9,7 @@ export function renderFooter() {
           <div class="footer__logo-icon">T</div>
           <span>TechStore</span>
         </div>
-        <p class="footer__desc">
-          Your trusted destination for premium electronics and tech accessories.
-          Quality products, competitive prices, exceptional service.
-        </p>
+        <p>Ваш надёжный магазин премиальной электроники и аксессуаров. Качественные товары, конкурентные цены, отличный сервис.</p>
         <div class="footer__socials">
           <a href="#" class="footer__social" aria-label="Facebook">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -30,43 +27,43 @@ export function renderFooter() {
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Quick Links</h4>
+        <h4 class="footer__col-title">Быстрые ссылки</h4>
         <ul class="footer__links">
-          <li><a href="/" data-link>Shop All Products</a></li>
-          <li><a href="/deals" data-link>Special Deals</a></li>
-          <li><a href="/about" data-link>About Us</a></li>
-          <li><a href="/contact" data-link>Contact Support</a></li>
+          <li><a href="/" data-link>Все товары</a></li>
+          <li><a href="/deals" data-link>Акции</a></li>
+          <li><a href="/about" data-link>О нас</a></li>
+          <li><a href="/contact" data-link>Поддержка</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Customer Service</h4>
+        <h4 class="footer__col-title">Покупателям</h4>
         <ul class="footer__links">
-          <li><a href="#">Shipping Information</a></li>
-          <li><a href="#">Returns &amp; Exchanges</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Возврат товара</a></li>
+          <li><a href="#">Частые вопросы</a></li>
+          <li><a href="#">Отследить заказ</a></li>
         </ul>
         <div class="footer__contact">
-          <p>Customer Support:</p>
+          <p>Служба поддержки:</p>
           <p><strong>1-800-TECH-SHOP</strong></p>
           <p>support@techstore.com</p>
         </div>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Newsletter</h4>
-        <p class="footer__newsletter-desc">Subscribe to get special offers, free giveaways, and updates.</p>
+        <h4 class="footer__col-title">Рассылка</h4>
+        <p class="footer__newsletter-desc">Подпишитесь и получайте специальные предложения и новости.</p>
         <form class="footer__newsletter-form" onsubmit="return false">
-          <input type="email" placeholder="Your email" class="footer__newsletter-input" />
-          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+          <input type="email" placeholder="Ваш email" class="footer__newsletter-input" />
+          <button type="submit" class="footer__newsletter-btn">Подписаться</button>
         </form>
       </div>
     </div>
 
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
-        <p>© 2026 TechStore. All rights reserved.</p>
+        <p>© 2026 TechStore. Все права защищены.</p>
         <div class="footer__bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
