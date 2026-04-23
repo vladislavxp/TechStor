@@ -36,9 +36,9 @@ export function renderCart() {
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
               </svg>
             </div>
-            <h2 class="cart-empty__title">Your Cart is Empty</h2>
-            <p class="cart-empty__desc">Add some amazing products to get started!</p>
-            <button class="btn btn--primary btn--lg" id="continue-shopping">Continue Shopping</button>
+            <h2 class="cart-empty__title">Корзина пуста</h2>
+            <p class="cart-empty__desc">Добавьте товары, чтобы начать покупки!</p>
+            <button class="btn btn--primary btn--lg" id="continue-shopping">Перейти в каталог</button>
           </div>
         </div>
       `;
