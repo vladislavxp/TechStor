@@ -2,6 +2,7 @@ import { products } from '../data/products.js';
 import { cart } from '../store/cart.js';
 import { router } from '../router.js';
 import { renderStars } from '../utils/stars.js';
+import { toast } from '../utils/toast.js';
 
 export function renderProduct({ id }) {
   const product = products.find((p) => p.id === parseInt(id));
@@ -191,6 +192,7 @@ export function renderProduct({ id }) {
         addBtn.textContent = '✓ Added to Cart';
         addBtn.classList.add('btn--added');
         addBtn.classList.remove('btn--primary');
+        toast(`${quantity > 1 ? quantity + '× ' : ''}"${product.name}" added to cart`);
       } else {
         router.navigate('/cart');
       }
