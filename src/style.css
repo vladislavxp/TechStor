@@ -1642,3 +1642,13 @@ ul { list-style: none; }
   transition: background var(--transition);
 }
 .cart-summary__clear:hover { background: #fef2f2; }
+
+/* ===== СТРОКА ЭКОНОМИИ В КОРЗИНЕ ===== */
+.cart-summary__row--savings {
+  color: var(--color-success);
+  font-weight: 600;
+  background: #ecfdf5;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin: 4px 0;
+}

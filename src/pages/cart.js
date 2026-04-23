@@ -84,7 +84,7 @@ export function renderCart() {
             <h2 class="cart-summary__title">Order Summary</h2>
 
             <div class="cart-summary__row">
-              <span>Subtotal</span>
+              <span>Подытог</span>
               <span id="summary-subtotal">$${subtotal.toFixed(2)}</span>
             </div>
 
@@ -92,7 +92,7 @@ export function renderCart() {
               appliedPromo
                 ? `
               <div class="cart-summary__row cart-summary__row--discount">
-                <span>Discount (${appliedPromo})</span>
+                <span>Скидка (${appliedPromo})</span>
                 <span id="summary-discount">−$${discount.toFixed(2)}</span>
               </div>
             `
@@ -100,14 +100,23 @@ export function renderCart() {
             }
 
             <div class="cart-summary__row">
-              <span>Shipping</span>
-              <span class="cart-summary__free">Free</span>
+              <span>Доставка</span>
+              <span class="cart-summary__free">Бесплатно</span>
             </div>
+
+            ${
+              appliedPromo
+                ? `<div class="cart-summary__row cart-summary__row--savings">
+                    <span>Ваша экономия</span>
+                    <span>$${discount.toFixed(2)}</span>
+                   </div>`
+                : ''
+            }
 
             <div class="cart-summary__divider"></div>
 
             <div class="cart-summary__row cart-summary__row--total">
-              <span>Total</span>
+              <span>Итого</span>
               <span id="summary-total">$${total.toFixed(2)}</span>
             </div>
 
