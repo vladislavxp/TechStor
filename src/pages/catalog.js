@@ -133,6 +133,7 @@ export function renderCatalog() {
         <div class="product-card__img-wrap">
           <img src="${p.images[0]}" alt="${p.name}" class="product-card__img" loading="lazy" />
           <span class="product-card__badge">${p.subtitle}</span>
+          ${p.oldPrice ? `<span class="product-card__sale-badge">SALE</span>` : ''}
         </div>
         <div class="product-card__body">
           <div class="product-card__rating">
@@ -141,7 +142,11 @@ export function renderCatalog() {
           </div>
           <h3 class="product-card__name">${p.name}</h3>
           <div class="product-card__footer">
-            <span class="product-card__price">$${p.price.toFixed(2)}</span>
+            <div class="product-card__prices">
+              <span class="product-card__price">$${p.price.toFixed(2)}</span>
+              ${p.oldPrice ? `<span class="product-card__old-price">$${p.oldPrice.toFixed(2)}</span>` : ''}
+              ${p.oldPrice ? `<span class="product-card__discount">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : ''}
+            </div>
             <button class="btn product-card__btn ${cart.hasProduct(p.id) ? 'btn--added' : 'btn--primary'}" data-add="${p.id}">
               ${cart.hasProduct(p.id) ? 'In Cart ✓' : 'Add to Cart'}
             </button>

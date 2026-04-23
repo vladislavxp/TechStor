@@ -4,6 +4,7 @@ export const products = [
     name: 'Premium Wireless Headphones',
     subtitle: 'AUDIO',
     price: 299.99,
+    oldPrice: 349.99,
     rating: 5,
     reviewsCount: 327,
     images: [
@@ -60,6 +61,7 @@ export const products = [
     name: 'Smart Fitness Watch Ultra',
     subtitle: 'WEARABLES',
     price: 449.99,
+    oldPrice: 499.99,
     rating: 4,
     reviewsCount: 189,
     images: [
@@ -116,6 +118,7 @@ export const products = [
     name: 'Portable Bluetooth Speaker',
     subtitle: 'AUDIO',
     price: 129.99,
+    oldPrice: 159.99,
     rating: 3.5,
     reviewsCount: 456,
     images: [
