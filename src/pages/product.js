@@ -161,6 +161,14 @@ export function renderProduct({ id }) {
     dots.forEach((d) => d.addEventListener('click', () => goToSlide(parseInt(d.dataset.dot))));
     thumbs.forEach((t) => t.addEventListener('click', () => goToSlide(parseInt(t.dataset.thumb))));
 
+    // Touch swipe support
+    let touchStartX = 0;
+    mainImg.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    mainImg.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
+    });
+
     // Quantity
     page.querySelector('#qty-dec').addEventListener('click', () => {
       if (quantity > 1) {
