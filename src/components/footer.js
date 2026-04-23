@@ -30,33 +30,33 @@ export function renderFooter() {
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Quick Links</h4>
+        <h4 class="footer__col-title">Быстрые ссылки</h4>
         <ul class="footer__links">
-          <li><a href="/" data-link>Shop All Products</a></li>
-          <li><a href="/deals" data-link>Special Deals</a></li>
-          <li><a href="/about" data-link>About Us</a></li>
-          <li><a href="/contact" data-link>Contact Support</a></li>
+          <li><a href="/" data-link>Все товары</a></li>
+          <li><a href="/deals" data-link>Акции</a></li>
+          <li><a href="/about" data-link>О нас</a></li>
+          <li><a href="/contact" data-link>Поддержка</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Customer Service</h4>
+        <h4 class="footer__col-title">Покупателям</h4>
         <ul class="footer__links">
-          <li><a href="#">Shipping Information</a></li>
-          <li><a href="#">Returns &amp; Exchanges</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Возврат товара</a></li>
+          <li><a href="#">Частые вопросы</a></li>
+          <li><a href="#">Отследить заказ</a></li>
         </ul>
         <div class="footer__contact">
-          <p>Customer Support:</p>
+          <p>Служба поддержки:</p>
           <p><strong>1-800-TECH-SHOP</strong></p>
           <p>support@techstore.com</p>
         </div>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Newsletter</h4>
-        <p class="footer__newsletter-desc">Subscribe to get special offers, free giveaways, and updates.</p>
+        <h4 class="footer__col-title">Рассылка</h4>
+        <p class="footer__newsletter-desc">Подпишитесь и получайте специальные предложения и новости.</p>
         <form class="footer__newsletter-form" onsubmit="return false">
           <input type="email" placeholder="Your email" class="footer__newsletter-input" />
           <button type="submit" class="footer__newsletter-btn">Subscribe</button>
