@@ -13,10 +13,10 @@ export function renderHeader() {
       </a>
 
       <nav class="header__nav">
-        <a href="/" data-link class="header__nav-link">Products</a>
-        <a href="/categories" data-link class="header__nav-link">Categories</a>
-        <a href="/deals" data-link class="header__nav-link">Deals</a>
-        <a href="/about" data-link class="header__nav-link">About</a>
+        <a href="/" data-link class="header__nav-link">Каталог</a>
+        <a href="/categories" data-link class="header__nav-link">Категории</a>
+        <a href="/deals" data-link class="header__nav-link">Акции</a>
+        <a href="/about" data-link class="header__nav-link">О нас</a>
       </nav>
 
       <button class="header__cart-btn" id="cart-btn" aria-label="Shopping cart">
@@ -26,7 +26,7 @@ export function renderHeader() {
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
         <span class="header__cart-badge" id="cart-badge" style="display:none">0</span>
-        <span class="header__cart-label">Shopping cart</span>
+        <span class="header__cart-label">Корзина</span>
       </button>
 
       <button class="header__burger" id="burger-btn" aria-label="Menu">
@@ -35,10 +35,10 @@ export function renderHeader() {
     </div>
 
     <div class="header__mobile-nav" id="mobile-nav">
-      <a href="/" data-link class="header__nav-link">Products</a>
-      <a href="/categories" data-link class="header__nav-link">Categories</a>
-      <a href="/deals" data-link class="header__nav-link">Deals</a>
-      <a href="/about" data-link class="header__nav-link">About</a>
+      <a href="/" data-link class="header__nav-link">Каталог</a>
+      <a href="/categories" data-link class="header__nav-link">Категории</a>
+      <a href="/deals" data-link class="header__nav-link">Акции</a>
+      <a href="/about" data-link class="header__nav-link">О нас</a>
     </div>
   `;
 
