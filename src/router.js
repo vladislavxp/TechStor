@@ -1,60 +1,100 @@
+/**
+ * Lightweight SPA router.
+ * Supports static routes and parameterized routes like /product/:id
+ * Uses History API (pushState / popstate).
+ */
+
 const routes = {};
-let currentPath = '';
+let notFoundHandler = null;
 
 export const router = {
-  register(path, handler) {
-    routes[path] = handler;
+  /**
+   * Register a route pattern with a handler function.
+   * @param {string} pattern - e.g. '/' or '/product/:id'
+   * @param {Function} handler - called with params object
+   */
+  register(pattern, handler) {
+    routes[pattern] = handler;
   },
 
+  /**
+   * Register a fallback handler for unmatched routes (404).
+   * @param {Function} handler
+   */
+  notFound(handler) {
+    notFoundHandler = handler;
+  },
+
+  /**
+   * Navigate to a new path, push to history and render.
+   * @param {string} path
+   */
   navigate(path) {
     history.pushState(null, '', path);
-    this.resolve(path);
+    this._resolve(path);
   },
 
-  resolve(path) {
-    currentPath = path;
+  /**
+   * Match current path against registered routes and call the handler.
+   * @param {string} path
+   */
+  _resolve(path) {
+    // Scroll to top on every navigation
+    window.scrollTo({ top: 0, behavior: 'instant' });
 
-    // Match exact or parameterized routes
     for (const [pattern, handler] of Object.entries(routes)) {
-      const regex = patternToRegex(pattern);
+      const regex = _patternToRegex(pattern);
       const match = path.match(regex);
       if (match) {
-        const params = extractParams(pattern, match);
+        const params = _extractParams(pattern, match);
         handler(params);
         return;
       }
     }
 
-    // Fallback to catalog
-    if (routes['/']) {
+    // No route matched — show 404
+    if (notFoundHandler) {
+      notFoundHandler();
+    } else if (routes['/']) {
       routes['/']({});
     }
   },
 
+  /**
+   * Bootstrap the router: bind popstate and delegate link clicks.
+   */
   init() {
+    // Back / forward navigation
     window.addEventListener('popstate', () => {
-      this.resolve(location.pathname);
+      this._resolve(location.pathname);
     });
 
+    // Intercept clicks on elements with [data-link]
     document.addEventListener('click', (e) => {
       const link = e.target.closest('[data-link]');
-      if (link) {
-        e.preventDefault();
-        const href = link.getAttribute('href') || link.dataset.href;
-        if (href) this.navigate(href);
+      if (!link) return;
+      e.preventDefault();
+      const href = link.getAttribute('href') || link.dataset.href;
+      if (href && href !== location.pathname) {
+        this.navigate(href);
       }
     });
 
-    this.resolve(location.pathname);
+    // Resolve the initial URL on page load
+    this._resolve(location.pathname);
   },
 };
 
-function patternToRegex(pattern) {
-  const escaped = pattern.replace(/\//g, '\\/').replace(/:([^/]+)/g, '([^/]+)');
+// ─── helpers ────────────────────────────────────────────────────────────────
+
+function _patternToRegex(pattern) {
+  const escaped = pattern
+    .replace(/\//g, '\\/')
+    .replace(/:([^/]+)/g, '([^/]+)');
   return new RegExp(`^${escaped}$`);
 }
 
-function extractParams(pattern, match) {
+function _extractParams(pattern, match) {
   const keys = [];
   const keyRegex = /:([^/]+)/g;
   let m;
