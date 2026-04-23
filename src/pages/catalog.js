@@ -2,6 +2,7 @@ import { products } from '../data/products.js';
 import { cart } from '../store/cart.js';
 import { router } from '../router.js';
 import { renderStars } from '../utils/stars.js';
+import { toast } from '../utils/toast.js';
 
 export function renderCatalog() {
   const page = document.createElement('div');
@@ -173,6 +174,7 @@ export function renderCatalog() {
           btn.textContent = 'In Cart ✓';
           btn.classList.remove('btn--primary');
           btn.classList.add('btn--added');
+          toast(`"${product.name}" added to cart`);
         }
       });
     });
