@@ -63,6 +63,12 @@ export function renderHeader() {
   cart.subscribe(updateBadge);
   updateBadge();
 
+  // Add shadow to header on scroll
+  const headerEl = header;
+  window.addEventListener('scroll', () => {
+    headerEl.classList.toggle('header--scrolled', window.scrollY > 10);
+  }, { passive: true });
+
   header.querySelector('#cart-btn').addEventListener('click', () => {
     router.navigate('/cart');
   });
