@@ -152,7 +152,13 @@ export function renderCart() {
     page.querySelectorAll('[data-remove]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const id = parseInt(btn.dataset.remove);
-        cart.removeItem(id);
+        const item = page.querySelector(`.cart-item[data-item-id="${id}"]`);
+        if (item) {
+          item.classList.add('removing');
+          setTimeout(() => cart.removeItem(id), 280);
+        } else {
+          cart.removeItem(id);
+        }
       });
     });
 
