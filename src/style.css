@@ -1652,3 +1652,26 @@ ul { list-style: none; }
   border-radius: var(--radius-sm);
   margin: 4px 0;
 }
+
+/* ===== АКТИВНЫЙ ПУНКТ МЕНЮ С ПОДЧЁРКИВАНИЕМ ===== */
+.header__nav-link {
+  position: relative;
+}
+
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.header__nav-link.active::after,
+.header__nav-link:hover::after {
+  transform: scaleX(1);
+}
