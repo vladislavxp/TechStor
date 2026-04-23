@@ -27,7 +27,7 @@ export function renderCart() {
     if (items.length === 0) {
       page.innerHTML = `
         <div class="container">
-          <h1 class="cart-page__title">Shopping Cart</h1>
+          <h1 class="cart-page__title">Корзина</h1>
           <div class="cart-empty">
             <div class="cart-empty__icon">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -48,7 +48,7 @@ export function renderCart() {
 
     page.innerHTML = `
       <div class="container">
-        <h1 class="cart-page__title">Shopping Cart</h1>
+        <h1 class="cart-page__title">Корзина <span class="cart-page__count">(${items.length} ${items.length === 1 ? 'товар' : items.length < 5 ? 'товара' : 'товаров'})</span></h1>
         <div class="cart-layout">
           <!-- Items list -->
           <div class="cart-items" id="cart-items">

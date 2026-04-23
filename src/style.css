@@ -1623,3 +1623,10 @@ ul { list-style: none; }
   border-radius: 4px;
   align-self: flex-end;
 }
+
+/* ===== СЧЁТЧИК ТОВАРОВ В ЗАГОЛОВКЕ КОРЗИНЫ ===== */
+.cart-page__count {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
