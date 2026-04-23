@@ -1630,3 +1630,15 @@ ul { list-style: none; }
   font-weight: 400;
   color: var(--color-text-secondary);
 }
+
+/* ===== КНОПКА ОЧИСТИТЬ КОРЗИНУ ===== */
+.cart-summary__clear {
+  width: 100%;
+  margin-top: 8px;
+  color: var(--color-error);
+  font-size: 13px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.cart-summary__clear:hover { background: #fef2f2; }

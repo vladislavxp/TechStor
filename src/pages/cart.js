@@ -130,8 +130,9 @@ export function renderCart() {
               <p class="cart-promo__msg" id="promo-msg"></p>
             </div>
 
-            <button class="btn btn--primary btn--lg cart-summary__checkout">Checkout</button>
-            <button class="btn btn--outline cart-summary__continue" id="continue-btn">Continue Shopping</button>
+            <button class="btn btn--primary btn--lg cart-summary__checkout">Оформить заказ</button>
+            <button class="btn btn--outline cart-summary__continue" id="continue-btn">Продолжить покупки</button>
+            <button class="btn cart-summary__clear" id="clear-cart-btn">🗑 Очистить корзину</button>
           </aside>
         </div>
       </div>
@@ -211,6 +212,11 @@ export function renderCart() {
 
     // Continue shopping
     page.querySelector('#continue-btn')?.addEventListener('click', () => router.navigate('/'));
+
+    // Clear cart
+    page.querySelector('#clear-cart-btn')?.addEventListener('click', () => {
+      if (confirm('Очистить всю корзину?')) cart.clear();
+    });
   }
 
   cart.subscribe(() => render());
