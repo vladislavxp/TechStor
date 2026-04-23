@@ -133,6 +133,7 @@ export function renderCatalog() {
         <div class="product-card__img-wrap">
           <img src="${p.images[0]}" alt="${p.name}" class="product-card__img" loading="lazy" />
           <span class="product-card__badge">${p.subtitle}</span>
+          ${p.oldPrice ? `<span class="product-card__sale-badge">SALE</span>` : ''}
         </div>
         <div class="product-card__body">
           <div class="product-card__rating">
