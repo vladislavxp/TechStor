@@ -145,6 +145,7 @@ export function renderCatalog() {
             <div class="product-card__prices">
               <span class="product-card__price">$${p.price.toFixed(2)}</span>
               ${p.oldPrice ? `<span class="product-card__old-price">$${p.oldPrice.toFixed(2)}</span>` : ''}
+              ${p.oldPrice ? `<span class="product-card__discount">-${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : ''}
             </div>
             <button class="btn product-card__btn ${cart.hasProduct(p.id) ? 'btn--added' : 'btn--primary'}" data-add="${p.id}">
               ${cart.hasProduct(p.id) ? 'In Cart ✓' : 'Add to Cart'}
