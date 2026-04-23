@@ -1349,3 +1349,13 @@ ul { list-style: none; }
 .product-card {
   animation: card-in 0.35s ease both;
 }
+
+/* ===== CART ITEM REMOVE ANIMATION ===== */
+@keyframes item-out {
+  to { opacity: 0; transform: translateX(20px); max-height: 0; padding: 0; margin: 0; }
+}
+
+.cart-item.removing {
+  animation: item-out 0.28s ease forwards;
+  overflow: hidden;
+}
