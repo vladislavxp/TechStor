@@ -27,7 +27,7 @@ export function renderCart() {
     if (items.length === 0) {
       page.innerHTML = `
         <div class="container">
-          <h1 class="cart-page__title">Shopping Cart</h1>
+          <h1 class="cart-page__title">Корзина</h1>
           <div class="cart-empty">
             <div class="cart-empty__icon">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -36,9 +36,9 @@ export function renderCart() {
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
               </svg>
             </div>
-            <h2 class="cart-empty__title">Your Cart is Empty</h2>
-            <p class="cart-empty__desc">Add some amazing products to get started!</p>
-            <button class="btn btn--primary btn--lg" id="continue-shopping">Continue Shopping</button>
+            <h2 class="cart-empty__title">Корзина пуста</h2>
+            <p class="cart-empty__desc">Добавьте товары, чтобы начать покупки!</p>
+            <button class="btn btn--primary btn--lg" id="continue-shopping">Перейти в каталог</button>
           </div>
         </div>
       `;
@@ -48,7 +48,7 @@ export function renderCart() {
 
     page.innerHTML = `
       <div class="container">
-        <h1 class="cart-page__title">Shopping Cart</h1>
+        <h1 class="cart-page__title">Корзина <span class="cart-page__count">(${items.length} ${items.length === 1 ? 'товар' : items.length < 5 ? 'товара' : 'товаров'})</span></h1>
         <div class="cart-layout">
           <!-- Items list -->
           <div class="cart-items" id="cart-items">
@@ -84,7 +84,7 @@ export function renderCart() {
             <h2 class="cart-summary__title">Order Summary</h2>
 
             <div class="cart-summary__row">
-              <span>Subtotal</span>
+              <span>Подытог</span>
               <span id="summary-subtotal">$${subtotal.toFixed(2)}</span>
             </div>
 
@@ -92,7 +92,7 @@ export function renderCart() {
               appliedPromo
                 ? `
               <div class="cart-summary__row cart-summary__row--discount">
-                <span>Discount (${appliedPromo})</span>
+                <span>Скидка (${appliedPromo})</span>
                 <span id="summary-discount">−$${discount.toFixed(2)}</span>
               </div>
             `
@@ -100,14 +100,23 @@ export function renderCart() {
             }
 
             <div class="cart-summary__row">
-              <span>Shipping</span>
-              <span class="cart-summary__free">Free</span>
+              <span>Доставка</span>
+              <span class="cart-summary__free">Бесплатно</span>
             </div>
+
+            ${
+              appliedPromo
+                ? `<div class="cart-summary__row cart-summary__row--savings">
+                    <span>Ваша экономия</span>
+                    <span>$${discount.toFixed(2)}</span>
+                   </div>`
+                : ''
+            }
 
             <div class="cart-summary__divider"></div>
 
             <div class="cart-summary__row cart-summary__row--total">
-              <span>Total</span>
+              <span>Итого</span>
               <span id="summary-total">$${total.toFixed(2)}</span>
             </div>
 
@@ -130,8 +139,9 @@ export function renderCart() {
               <p class="cart-promo__msg" id="promo-msg"></p>
             </div>
 
-            <button class="btn btn--primary btn--lg cart-summary__checkout">Checkout</button>
-            <button class="btn btn--outline cart-summary__continue" id="continue-btn">Continue Shopping</button>
+            <button class="btn btn--primary btn--lg cart-summary__checkout">Оформить заказ</button>
+            <button class="btn btn--outline cart-summary__continue" id="continue-btn">Продолжить покупки</button>
+            <button class="btn cart-summary__clear" id="clear-cart-btn">🗑 Очистить корзину</button>
           </aside>
         </div>
       </div>
@@ -211,6 +221,11 @@ export function renderCart() {
 
     // Continue shopping
     page.querySelector('#continue-btn')?.addEventListener('click', () => router.navigate('/'));
+
+    // Clear cart
+    page.querySelector('#clear-cart-btn')?.addEventListener('click', () => {
+      if (confirm('Очистить всю корзину?')) cart.clear();
+    });
   }
 
   cart.subscribe(() => render());
