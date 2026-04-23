@@ -58,15 +58,15 @@ export function renderFooter() {
         <h4 class="footer__col-title">Рассылка</h4>
         <p class="footer__newsletter-desc">Подпишитесь и получайте специальные предложения и новости.</p>
         <form class="footer__newsletter-form" onsubmit="return false">
-          <input type="email" placeholder="Your email" class="footer__newsletter-input" />
-          <button type="submit" class="footer__newsletter-btn">Subscribe</button>
+          <input type="email" placeholder="Ваш email" class="footer__newsletter-input" />
+          <button type="submit" class="footer__newsletter-btn">Подписаться</button>
         </form>
       </div>
     </div>
 
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
-        <p>© 2026 TechStore. All rights reserved.</p>
+        <p>© 2026 TechStore. Все права защищены.</p>
         <div class="footer__bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
