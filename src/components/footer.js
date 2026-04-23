@@ -9,10 +9,7 @@ export function renderFooter() {
           <div class="footer__logo-icon">T</div>
           <span>TechStore</span>
         </div>
-        <p class="footer__desc">
-          Your trusted destination for premium electronics and tech accessories.
-          Quality products, competitive prices, exceptional service.
-        </p>
+        <p>Ваш надёжный магазин премиальной электроники и аксессуаров. Качественные товары, конкурентные цены, отличный сервис.</p>
         <div class="footer__socials">
           <a href="#" class="footer__social" aria-label="Facebook">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
