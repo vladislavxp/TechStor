@@ -7,7 +7,7 @@ export function renderHeader() {
 
   header.innerHTML = `
     <div class="header__inner container">
-      <a href="/" data-link class="header__logo" aria-label="TechStore — Home">
+      <a href="/" data-link class="header__logo">
         <div class="header__logo-icon">T</div>
         <span class="header__logo-text">TechStore</span>
       </a>

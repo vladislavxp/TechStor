@@ -127,8 +127,8 @@ export function renderCatalog() {
 
     grid.innerHTML = filtered
       .map(
-        (p) => `
-      <article class="product-card" data-id="${p.id}">
+        (p, i) => `
+      <article class="product-card" data-id="${p.id}" style="animation-delay:${i * 60}ms">
         <div class="product-card__img-wrap">
           <img src="${p.images[0]}" alt="${p.name}" class="product-card__img" loading="lazy" />
           <span class="product-card__badge">${p.subtitle}</span>
