@@ -1,8 +1,14 @@
 import { cart } from '../store/cart.js';
 import { router } from '../router.js';
 
+/**
+ * Available promo codes.
+ * Key — code (uppercase), value — discount fraction (0.1 = 10%).
+ */
 const PROMO_CODES = {
-  SAVE10: 0.1,
+  SAVE10:  0.1,   // 10% off
+  TECH20:  0.2,   // 20% off
+  WELCOME: 0.05,  // 5% welcome discount
 };
 
 export function renderCart() {
@@ -185,13 +191,16 @@ export function renderCart() {
       if (PROMO_CODES[code] !== undefined) {
         appliedPromo = code;
         promoDiscount = PROMO_CODES[code];
-        promoMsg.textContent = `Promo code applied! ${promoDiscount * 100}% discount.`;
+        promoMsg.textContent = `✓ Promo applied! ${promoDiscount * 100}% discount.`;
         promoMsg.className = 'cart-promo__msg cart-promo__msg--success';
         render();
       } else {
         promoMsg.textContent = 'Неверный промокод.';
         promoMsg.className = 'cart-promo__msg cart-promo__msg--error';
         promoInput.classList.add('cart-promo__input--error');
+        // Shake animation on invalid code
+        promoInput.classList.add('shake');
+        setTimeout(() => promoInput.classList.remove('shake'), 500);
       }
     });
 
