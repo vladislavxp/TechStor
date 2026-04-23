@@ -13,10 +13,10 @@ export function renderHeader() {
       </a>
 
       <nav class="header__nav">
-        <a href="/" data-link class="header__nav-link">Products</a>
-        <a href="/categories" data-link class="header__nav-link">Categories</a>
-        <a href="/deals" data-link class="header__nav-link">Deals</a>
-        <a href="/about" data-link class="header__nav-link">About</a>
+        <a href="/" data-link class="header__nav-link">Каталог</a>
+        <a href="/categories" data-link class="header__nav-link">Категории</a>
+        <a href="/deals" data-link class="header__nav-link">Акции</a>
+        <a href="/about" data-link class="header__nav-link">О нас</a>
       </nav>
 
       <button class="header__cart-btn" id="cart-btn" aria-label="Shopping cart">
@@ -35,10 +35,10 @@ export function renderHeader() {
     </div>
 
     <div class="header__mobile-nav" id="mobile-nav">
-      <a href="/" data-link class="header__nav-link">Products</a>
-      <a href="/categories" data-link class="header__nav-link">Categories</a>
-      <a href="/deals" data-link class="header__nav-link">Deals</a>
-      <a href="/about" data-link class="header__nav-link">About</a>
+      <a href="/" data-link class="header__nav-link">Каталог</a>
+      <a href="/categories" data-link class="header__nav-link">Категории</a>
+      <a href="/deals" data-link class="header__nav-link">Акции</a>
+      <a href="/about" data-link class="header__nav-link">О нас</a>
     </div>
   `;
 
