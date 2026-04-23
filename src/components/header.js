@@ -26,7 +26,7 @@ export function renderHeader() {
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
         <span class="header__cart-badge" id="cart-badge" style="display:none">0</span>
-        <span class="header__cart-label">Shopping cart</span>
+        <span class="header__cart-label">Корзина</span>
       </button>
 
       <button class="header__burger" id="burger-btn" aria-label="Menu">
