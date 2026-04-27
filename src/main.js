@@ -5,6 +5,7 @@ import { renderCatalog } from './pages/catalog.js';
 import { renderProduct } from './pages/product.js';
 import { renderCart } from './pages/cart.js';
 import { renderCategories } from './pages/categories.js';
+import { renderDeals } from './pages/deals.js';
 import { router } from './router.js';
 
 const app = document.getElementById('app');
@@ -46,7 +47,7 @@ function stubPage(title) {
 }
 
 router.register('/categories', () => mountPage(renderCategories()));
-router.register('/deals',      () => mountPage(stubPage('Special Deals')));
+router.register('/deals',      () => mountPage(renderDeals()));
 router.register('/about',      () => mountPage(stubPage('About Us')));
 router.register('/contact',    () => mountPage(stubPage('Contact Support')));
 
