@@ -1816,3 +1816,307 @@ ul { list-style: none; }
 @media (max-width: 480px) {
   .categories-grid { grid-template-columns: 1fr; }
 }
+
+/* ========================================
+   СТРАНИЦА АКЦИЙ
+   ======================================== */
+
+.deals-hero {
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  color: white;
+  padding: 56px 0;
+}
+
+.deals-hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.deals-hero__label {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.deals-hero__title {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.deals-hero__subtitle {
+  font-size: clamp(14px, 2vw, 17px);
+  opacity: 0.85;
+  max-width: 440px;
+}
+
+.deals-hero__badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 3px solid rgba(255,255,255,.3);
+  flex-shrink: 0;
+}
+
+.deals-hero__badge-pct {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.deals-hero__badge-text {
+  font-size: 13px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+/* Flash Sale блок */
+.deals-body {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+.flash-sale {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 32px;
+  margin-bottom: 48px;
+  box-shadow: var(--color-card-shadow);
+}
+
+.flash-sale__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.flash-sale__title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.flash-sale__subtitle {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+/* Таймер */
+.flash-sale__timer {
+  text-align: right;
+}
+
+.flash-sale__timer-label {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.flash-sale__countdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.countdown-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-text);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 52px;
+}
+
+.countdown-val {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.countdown-sep {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 14px;
+}
+
+/* Сетка акционных карточек */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Карточка акции */
+.deal-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  box-shadow: var(--color-card-shadow);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.deal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--color-card-shadow-hover);
+  border-color: transparent;
+}
+
+.deal-card__img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.deal-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.deal-card:hover .deal-card__img { transform: scale(1.05); }
+
+.deal-card__discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ef4444;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.deal-card__body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.deal-card__category {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  letter-spacing: 0.05em;
+}
+
+.deal-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.deal-card__name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.deal-card__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.deal-card__sale-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.deal-card__old-price {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+}
+
+.deal-card__footer {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.deal-card__btn,
+.deal-card__view {
+  flex: 1;
+  font-size: 13px;
+  padding: 9px 12px;
+}
+
+/* Блок «Смотреть все» */
+.deals-more {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.deals-more__text {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .deals-hero { padding: 40px 0; }
+  .deals-hero__badge { width: 90px; height: 90px; }
+  .deals-hero__badge-pct { font-size: 22px; }
+  .flash-sale { padding: 20px; }
+  .flash-sale__header { flex-direction: column; }
+  .flash-sale__timer { text-align: left; }
+  .countdown-block { min-width: 44px; padding: 6px 8px; }
+  .countdown-val { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .deals-grid { grid-template-columns: 1fr; }
+  .deal-card__footer { flex-direction: column; }
+}
