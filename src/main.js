@@ -6,6 +6,7 @@ import { renderProduct } from './pages/product.js';
 import { renderCart } from './pages/cart.js';
 import { renderCategories } from './pages/categories.js';
 import { renderDeals } from './pages/deals.js';
+import { renderAbout } from './pages/about.js';
 import { router } from './router.js';
 
 const app = document.getElementById('app');
@@ -48,7 +49,7 @@ function stubPage(title) {
 
 router.register('/categories', () => mountPage(renderCategories()));
 router.register('/deals',      () => mountPage(renderDeals()));
-router.register('/about',      () => mountPage(stubPage('About Us')));
+router.register('/about',      () => mountPage(renderAbout()));
 router.register('/contact',    () => mountPage(stubPage('Contact Support')));
 
 // ── 404 fallback ─────────────────────────────────────────────────────────────
