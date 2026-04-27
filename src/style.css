@@ -535,6 +535,15 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+/* Левый ползунок (min) должен быть поверх трека правого */
+#range-min {
+  z-index: 2;
+}
+
+#range-max {
+  z-index: 1;
+}
+
 .catalog-filters__range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
