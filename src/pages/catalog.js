@@ -317,6 +317,9 @@ export function renderCatalog() {
   }
 
   initSlider();
+
+  // Пересчитать позиции ползунков после того как DOM отрисован
+  requestAnimationFrame(() => updateSliderUI());
   // ──────────────────────────────────────────────────────────────────────────
 
   // Rating filter
