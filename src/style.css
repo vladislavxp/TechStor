@@ -520,9 +520,9 @@ ul { list-style: none; }
   position: relative;
   height: 18px;
   margin-top: 10px;
-  padding: 0 9px;
   box-sizing: border-box;
-  contain: layout;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ── Кастомный двойной слайдер цены ── */
@@ -533,22 +533,24 @@ ul { list-style: none; }
   align-items: center;
   user-select: none;
   width: 100%;
-  contain: layout;
+  max-width: 100%;
+  margin: 0 9px;
+  width: calc(100% - 18px);
 }
 
 .price-slider__track {
   position: absolute;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--color-border);
+  height: 3px;
+  background: #e5e7eb;
   border-radius: 2px;
   width: 100%;
 }
 
 .price-slider__fill {
   position: absolute;
-  height: 4px;
+  height: 3px;
   background: var(--color-primary);
   border-radius: 2px;
 }

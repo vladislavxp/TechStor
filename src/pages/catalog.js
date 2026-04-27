@@ -229,8 +229,9 @@ export function renderCatalog() {
     const fill     = page.querySelector('#slider-fill');
     if (!slider) return;
 
-    const pctMin = (minPrice / maxProductPrice) * 100;
-    const pctMax = (maxPrice / maxProductPrice) * 100;
+    // Ограничиваем проценты чтобы ползунки не вылезали за края
+    const pctMin = Math.max(0, Math.min((minPrice / maxProductPrice) * 100, 100));
+    const pctMax = Math.max(0, Math.min((maxPrice / maxProductPrice) * 100, 100));
 
     thumbMin.style.left = `${pctMin}%`;
     thumbMax.style.left = `${pctMax}%`;
