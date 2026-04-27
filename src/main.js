@@ -4,6 +4,7 @@ import { renderFooter } from './components/footer.js';
 import { renderCatalog } from './pages/catalog.js';
 import { renderProduct } from './pages/product.js';
 import { renderCart } from './pages/cart.js';
+import { renderCategories } from './pages/categories.js';
 import { router } from './router.js';
 
 const app = document.getElementById('app');
@@ -44,7 +45,7 @@ function stubPage(title) {
   return el;
 }
 
-router.register('/categories', () => mountPage(stubPage('Categories')));
+router.register('/categories', () => mountPage(renderCategories()));
 router.register('/deals',      () => mountPage(stubPage('Special Deals')));
 router.register('/about',      () => mountPage(stubPage('About Us')));
 router.register('/contact',    () => mountPage(stubPage('Contact Support')));
