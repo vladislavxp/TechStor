@@ -7,7 +7,7 @@ import { toast } from '../utils/toast.js';
 // Товары на акции (первые 4, скидка 20%)
 const DEAL_PRODUCT_IDS = [1, 2, 3, 4];
 const DEAL_DISCOUNT = 20; // процент скидки
-const DEAL_ENDS_DAYS = 2; // через сколько дней заканчивается
+const DEAL_ENDS_DAYS = 4; // через сколько дней заканчивается
 
 export function renderDeals() {
   const page = document.createElement('div');
