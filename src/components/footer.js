@@ -46,7 +46,7 @@ export function renderFooter() {
         </ul>
         <div class="footer__contact">
           <p>Служба поддержки:</p>
-          <p><strong>1-800-TECH-SHOP</strong></p>
+          <p><strong>TECH-SHOP</strong></p>
           <p>support@techstore.com</p>
         </div>
       </div>
