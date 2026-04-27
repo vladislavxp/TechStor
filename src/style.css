@@ -523,9 +523,9 @@ ul { list-style: none; }
 
 .catalog-filters__range {
   position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
+  left: 9px;
+  right: 9px;
+  width: calc(100% - 18px);
   height: 4px;
   top: 50%;
   margin-top: -2px;
