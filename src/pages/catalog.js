@@ -45,8 +45,13 @@ export function renderCatalog() {
             </div>
           </div>
           <div class="catalog-filters__range-wrap">
-            <input type="range" id="range-min" class="catalog-filters__range" min="0" max="${maxProductPrice}" value="0" step="10" />
-            <input type="range" id="range-max" class="catalog-filters__range" min="0" max="${maxProductPrice}" value="${maxProductPrice}" step="10" />
+            <div class="price-slider" id="price-slider">
+              <div class="price-slider__track">
+                <div class="price-slider__fill" id="slider-fill"></div>
+              </div>
+              <div class="price-slider__thumb price-slider__thumb--min" id="thumb-min" tabindex="0" role="slider" aria-label="Minimum price"></div>
+              <div class="price-slider__thumb price-slider__thumb--max" id="thumb-max" tabindex="0" role="slider" aria-label="Maximum price"></div>
+            </div>
           </div>
         </div>
 
@@ -191,8 +196,7 @@ export function renderCatalog() {
     minRating = 0;
     page.querySelector('#price-min').value = 0;
     page.querySelector('#price-max').value = maxProductPrice;
-    page.querySelector('#range-min').value = 0;
-    page.querySelector('#range-max').value = maxProductPrice;
+    updateSliderUI();
     const radios = page.querySelectorAll('input[name="rating"]');
     radios.forEach((r) => (r.checked = false));
     applyFiltersAndSort();
@@ -204,31 +208,116 @@ export function renderCatalog() {
     applyFiltersAndSort();
   });
 
-  // Price inputs
+  // Price number inputs
   page.querySelector('#price-min').addEventListener('input', (e) => {
-    minPrice = parseFloat(e.target.value) || 0;
-    page.querySelector('#range-min').value = minPrice;
+    minPrice = Math.min(parseFloat(e.target.value) || 0, maxPrice - 10);
+    updateSliderUI();
     applyFiltersAndSort();
   });
 
   page.querySelector('#price-max').addEventListener('input', (e) => {
-    maxPrice = parseFloat(e.target.value) || maxProductPrice;
-    page.querySelector('#range-max').value = maxPrice;
+    maxPrice = Math.max(parseFloat(e.target.value) || maxProductPrice, minPrice + 10);
+    updateSliderUI();
     applyFiltersAndSort();
   });
 
-  // Range sliders
-  page.querySelector('#range-min').addEventListener('input', (e) => {
-    minPrice = parseFloat(e.target.value);
-    page.querySelector('#price-min').value = minPrice;
-    applyFiltersAndSort();
-  });
+  // ── Кастомный двойной слайдер ──────────────────────────────────────────────
+  function updateSliderUI() {
+    const slider   = page.querySelector('#price-slider');
+    const thumbMin = page.querySelector('#thumb-min');
+    const thumbMax = page.querySelector('#thumb-max');
+    const fill     = page.querySelector('#slider-fill');
+    if (!slider) return;
 
-  page.querySelector('#range-max').addEventListener('input', (e) => {
-    maxPrice = parseFloat(e.target.value);
-    page.querySelector('#price-max').value = maxPrice;
-    applyFiltersAndSort();
-  });
+    const pctMin = (minPrice / maxProductPrice) * 100;
+    const pctMax = (maxPrice / maxProductPrice) * 100;
+
+    thumbMin.style.left = `${pctMin}%`;
+    thumbMax.style.left = `${pctMax}%`;
+    fill.style.left     = `${pctMin}%`;
+    fill.style.width    = `${pctMax - pctMin}%`;
+  }
+
+  function initSlider() {
+    const slider   = page.querySelector('#price-slider');
+    const thumbMin = page.querySelector('#thumb-min');
+    const thumbMax = page.querySelector('#thumb-max');
+
+    function getPercent(clientX) {
+      const rect = slider.getBoundingClientRect();
+      return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    }
+
+    function dragThumb(thumb, onMove) {
+      function onMouseMove(e) {
+        onMove(e.clientX);
+      }
+      function onTouchMove(e) {
+        onMove(e.touches[0].clientX);
+      }
+      function stop() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', stop);
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', stop);
+      }
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', stop);
+      document.addEventListener('touchmove', onTouchMove, { passive: true });
+      document.addEventListener('touchend', stop);
+    }
+
+    thumbMin.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      dragThumb(thumbMin, (clientX) => {
+        const pct = getPercent(clientX);
+        const val = Math.round((pct * maxProductPrice) / 10) * 10;
+        minPrice = Math.max(0, Math.min(val, maxPrice - 10));
+        page.querySelector('#price-min').value = minPrice;
+        updateSliderUI();
+        applyFiltersAndSort();
+      });
+    });
+
+    thumbMin.addEventListener('touchstart', (e) => {
+      dragThumb(thumbMin, (clientX) => {
+        const pct = getPercent(clientX);
+        const val = Math.round((pct * maxProductPrice) / 10) * 10;
+        minPrice = Math.max(0, Math.min(val, maxPrice - 10));
+        page.querySelector('#price-min').value = minPrice;
+        updateSliderUI();
+        applyFiltersAndSort();
+      });
+    }, { passive: true });
+
+    thumbMax.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      dragThumb(thumbMax, (clientX) => {
+        const pct = getPercent(clientX);
+        const val = Math.round((pct * maxProductPrice) / 10) * 10;
+        maxPrice = Math.max(minPrice + 10, Math.min(val, maxProductPrice));
+        page.querySelector('#price-max').value = maxPrice;
+        updateSliderUI();
+        applyFiltersAndSort();
+      });
+    });
+
+    thumbMax.addEventListener('touchstart', (e) => {
+      dragThumb(thumbMax, (clientX) => {
+        const pct = getPercent(clientX);
+        const val = Math.round((pct * maxProductPrice) / 10) * 10;
+        maxPrice = Math.max(minPrice + 10, Math.min(val, maxProductPrice));
+        page.querySelector('#price-max').value = maxPrice;
+        updateSliderUI();
+        applyFiltersAndSort();
+      });
+    }, { passive: true });
+
+    updateSliderUI();
+  }
+
+  initSlider();
+  // ──────────────────────────────────────────────────────────────────────────
 
   // Rating filter
   page.querySelector('#rating-options').addEventListener('change', (e) => {

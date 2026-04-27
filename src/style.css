@@ -521,66 +521,50 @@ ul { list-style: none; }
   margin-top: 10px;
 }
 
-.catalog-filters__range {
+/* ── Кастомный двойной слайдер цены ── */
+.price-slider {
+  position: relative;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.price-slider__track {
   position: absolute;
-  left: 9px;
-  right: 9px;
-  width: calc(100% - 18px);
+  left: 0;
+  right: 0;
   height: 4px;
-  top: 50%;
-  margin-top: -2px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  pointer-events: none;
+  background: var(--color-border);
+  border-radius: 2px;
 }
 
-/* Левый ползунок (min) должен быть поверх трека правого */
-#range-min {
+.price-slider__fill {
+  position: absolute;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.price-slider__thumb {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--color-primary);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  cursor: grab;
+  transform: translateX(-50%);
   z-index: 2;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-#range-max {
-  z-index: 1;
-}
-
-.catalog-filters__range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  cursor: pointer;
-  pointer-events: all;
-  border: 2px solid white;
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
-  transition: transform var(--transition);
-  margin-top: -7px;
-}
-.catalog-filters__range::-webkit-slider-thumb:hover { transform: scale(1.2); }
-
-.catalog-filters__range::-webkit-slider-runnable-track {
-  height: 4px;
-  background: var(--color-border);
-  border-radius: 2px;
-}
-
-.catalog-filters__range::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  cursor: pointer;
-  pointer-events: all;
-  border: 2px solid white;
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
-}
-
-.catalog-filters__range::-moz-range-track {
-  height: 4px;
-  background: var(--color-border);
-  border-radius: 2px;
+.price-slider__thumb:hover,
+.price-slider__thumb:active {
+  transform: translateX(-50%) scale(1.2);
+  box-shadow: 0 2px 8px rgba(37,99,235,.4);
+  cursor: grabbing;
 }
 
 .catalog-filters__rating-options {
