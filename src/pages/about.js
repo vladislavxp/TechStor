@@ -98,8 +98,8 @@ export function renderAbout() {
               </svg>
             </div>
             <h3 class="contact-card__title">Позвоните нам</h3>
-            <p class="contact-card__line">1-800-TECH-SHOP</p>
-            <p class="contact-card__line">(1-800-832-4746)</p>
+            <p class="contact-card__line">TECH-SHOP</p>
+            <p class="contact-card__line">(+375-29-846-32-01)</p>
           </div>
 
           <div class="contact-card">
@@ -110,8 +110,8 @@ export function renderAbout() {
               </svg>
             </div>
             <h3 class="contact-card__title">Наш адрес</h3>
-            <p class="contact-card__line">123 Tech Street</p>
-            <p class="contact-card__line">San Francisco, CA 94105</p>
+            <p class="contact-card__line">23-00-28</p>
+            <p class="contact-card__line">Гродно, ул. Ожешко 22</p>
           </div>
 
           <div class="contact-card">
